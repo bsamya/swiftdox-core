@@ -5,5 +5,9 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxtjs/tailwindcss",
     "vuetify-nuxt-module"
-  ]
+  ],
+
+  imports: {
+    dirs: ["./stores", "./types"],
+  }
 })
