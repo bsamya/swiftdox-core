@@ -58,6 +58,7 @@ export type Job = {
   agentId: string | null;
   reference: string;
   country: string;
+  region?: string;
   status: JobStatus
   items: (ShippingDocument | LegalDocument)[];
   events: { [key in JobEvent]?: { date: Timestamp, by: string } };
