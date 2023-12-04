@@ -7,7 +7,5 @@ export default defineNuxtConfig({
     "vuetify-nuxt-module"
   ],
 
-  imports: {
-    dirs: ["./stores", "./types"],
-  }
+
 })
