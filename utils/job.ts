@@ -79,6 +79,8 @@ export type Job = {
   }
 }
 
+export type JobStats = Pick<Job, "summary">
+
 export interface invoice {
   id: string;
   date: Timestamp;
