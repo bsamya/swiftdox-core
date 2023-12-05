@@ -46,11 +46,6 @@ export enum JobEvent {
   withdrawn = 'withdrawn',
 }
 
-type JobSummary = {
-  pending: number,
-  approved: number,
-  declined: number,
-}
 
 export type Job = {
   jobId: string;
@@ -64,22 +59,30 @@ export type Job = {
   events: { [key in JobEvent]?: { date: Timestamp, by: string } };
 
   summary: {
-    shippingDocuments: JobSummary
-    legalDocuments: JobSummary
-  },
+    shippingDocuments: {
+      pending: number,
+      approved: number,
+      declined: number,
+    },
+    legalDocuments: {
+      pending: number,
+      approved: number,
+      declined: number,
+    },
 
-  billing?: {
-    preAuthAmount: number,
-    transactionId: string,
-  }
-  invoice?: {
-    qty: number,
-    fee: number,
-    total: number
+    billing?: {
+      preAuthAmount: number,
+      transactionId: string,
+    }
+    invoice?: {
+      qty: number,
+      fee: number,
+      total: number
+    }
   }
 }
 
-export type JobStats = Pick<Job, "summary">
+export type JobSummary = Pick<Job, "summary">
 
 export interface invoice {
   id: string;
