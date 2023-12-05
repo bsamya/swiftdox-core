@@ -30,23 +30,6 @@ export interface ShippingDocument {
   attachments: string[];
 }
 
-export enum JobStatus {
-  draft = 'draft',
-  pending = 'pending',
-  submitted = 'submitted',
-  completed = 'completed',
-  withdrawn = 'withdrawn',
-}
-
-export enum JobEvent {
-  created = 'created',
-  lastUpdated = 'lastUpdated',
-  submitted = 'submitted',
-  completed = 'completed',
-  withdrawn = 'withdrawn',
-}
-
-
 export type Job = {
   jobId: string;
   profileId: string;
@@ -54,9 +37,15 @@ export type Job = {
   reference: string;
   country: string;
   region?: string;
-  status: JobStatus
+  status: 'draft' | 'pending' | 'submitted' | 'completed' | 'withdrawn';
   items: (ShippingDocument | LegalDocument)[];
-  events: { [key in JobEvent]?: { date: Timestamp, by: string } };
+  events: {
+    created?: { date: Timestamp, by: string }
+    lastUpdated?: { date: Timestamp, by: string }
+    submitted?: { date: Timestamp, by: string }
+    completed?: { date: Timestamp, by: string }
+    withdrawn?: { date: Timestamp, by: string }
+  };
 
   summary: {
     shippingDocuments: {
