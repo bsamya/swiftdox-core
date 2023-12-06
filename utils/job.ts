@@ -58,11 +58,13 @@ export type Job = {
       approved: number,
       declined: number,
     },
-  }
+  };
+
   billing?: {
     preAuthAmount: number,
     transactionId: string,
-  }
+  };
+
   invoice?: {
     qty: number,
     fee: number,
