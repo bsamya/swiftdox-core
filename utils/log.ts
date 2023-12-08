@@ -1,10 +1,11 @@
-type Log = {
-  type: 'job' | 'application',
-  id: string,
-  source: 'client' | 'partner' | 'admin';
-  status: ApplicationStatus;
-  date: Timestamp;
-  user: string;
-  comment?: string;
-  message?: string
+import { Timestamp } from "firebase/firestore";
+
+export type EventLog = {
+  trigger: 'client' | 'partner'
+  date: Timestamp
+  user: string
+  source: 'job' | 'profile' | 'application'
+  id: string
+  action: 'submitted' | 'approved' | 'declined' | 'completed'
+  message: string
 }
