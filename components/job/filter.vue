@@ -11,7 +11,7 @@
         />
       </template>
       <v-list>
-        <v-list-item v-for="item in items" :key="item.key" @click="update('pending')">
+        <v-list-item v-for="item in items" :key="item.key" @click="update(item.key)">
           <template v-slot:prepend>
             <v-icon>{{
               selectedFilters.includes(item.key)
@@ -33,8 +33,6 @@
           Show All Jobs
         </v-list-item>
       </v-list>
-
-      <pre>{{ selectedFilters }}</pre>
     </v-menu>
   </div>
 </template>
@@ -67,4 +65,3 @@ const update = (filter: string) => {
   emit("update:modelValue", selectedFilters.value);
 };
 </script>
--
