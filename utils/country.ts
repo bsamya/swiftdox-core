@@ -1,4 +1,4 @@
-type AuthenticationType = "apostille" | "legalization"
+type AuthenticationType = "apostille" | "legalization" | null | undefined;
 
 export interface Country {
   name: string;

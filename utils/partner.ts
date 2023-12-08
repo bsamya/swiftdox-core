@@ -43,6 +43,28 @@ export type CertificateOptions = {
   }
 }
 
+interface PartnerUsers {
+  partnerId: string;
+  id: string;
+  firstName: string;
+  lastName: string;
+  title?: string;
+  email: string;
+  tel: string;
+  notes?: string;
+  isPrimary: boolean;
+  isBilling: boolean;
+  gender: "Male" | "Female";
+  permissions: {
+    isAdministrator: boolean;
+    isNotary: boolean;
+    isSignatory: boolean;
+    canApproveProfiles: boolean;
+    canApproveApplications: boolean;
+  };
+  signature?: string;
+}
+
 
 export type Partners = Record<string, Partner>;
 

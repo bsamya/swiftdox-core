@@ -1,26 +1,10 @@
 import { Timestamp } from "firebase/firestore";
 
 //addressBook
-type AddressType = "mailing" | "buyer" | "consignee";
-type AuthenticationType = 'apostille' | 'legalization' | null | undefined;
-
-type Address = {
-  profileId: string;
-  addressId: string;
-  addressType: AddressType;
-  name: string;
-  address1: string;
-  address2: string;
-  address3: string;
-  country: string;
-  address: string;
-  isDeleted: boolean;
-};
 
 
 type AddressUpdateSource = "addressBook" | "coo";
 /* Address Book */
-
 
 type DateField =
   | "businessLicenseExpiry"

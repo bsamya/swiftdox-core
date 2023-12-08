@@ -12,7 +12,7 @@ export interface DocType {
   isShippingDocument: boolean
   isArchived: boolean,
   isDeleted?: boolean,
-  alerts?: DocumentAlert[],
+  alerts?: DocAlert[],
 
 }
 
