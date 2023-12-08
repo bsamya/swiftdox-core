@@ -25,7 +25,7 @@
         <v-list-item @click="update('all')">
           <template v-slot:prepend>
             <v-icon>{{
-              selectedFilters.length === 4
+              selectedFilters.length === items.length
               ? "mdi-checkbox-multiple-marked-outline"
               : "mdi-checkbox-multiple-blank-outline"
             }}</v-icon>
