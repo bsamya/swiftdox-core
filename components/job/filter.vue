@@ -33,6 +33,8 @@
           Show All Jobs
         </v-list-item>
       </v-list>
+
+      <pre>{{ selectedFilters }}</pre>
     </v-menu>
   </div>
 </template>
