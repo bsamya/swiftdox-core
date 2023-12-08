@@ -11,51 +11,18 @@
         />
       </template>
       <v-list>
-        <v-list-item @click="updateFilters('pending')">
+        <v-list-item v-for="item in items" :key="item.key" @click="update('pending')">
           <template v-slot:prepend>
             <v-icon>{{
-              selectedFilters.includes("pending")
+              selectedFilters.includes(item.key)
                 ? "mdi-checkbox-marked-outline"
                 : "mdi-checkbox-blank-outline"
             }}</v-icon>
           </template>
-          Show Pending Jobs
+          {{ item.title }}
         </v-list-item>
 
-        <v-list-item @click="updateFilters('completed')">
-          <template v-slot:prepend>
-            <v-icon>{{
-              selectedFilters.includes("completed")
-                ? "mdi-checkbox-marked-outline"
-                : "mdi-checkbox-blank-outline"
-            }}</v-icon>
-          </template>
-          Show Completed Jobs
-        </v-list-item>
-
-        <v-list-item @click="updateFilters('draft')">
-          <template v-slot:prepend>
-            <v-icon>{{
-              selectedFilters.includes("draft")
-                ? "mdi-checkbox-marked-outline"
-                : "mdi-checkbox-blank-outline"
-            }}</v-icon>
-          </template>
-          Show Draft Jobs
-        </v-list-item>
-
-        <v-list-item @click="updateFilters('withdrawn')">
-          <template v-slot:prepend>
-            <v-icon>{{
-              selectedFilters.includes("withdrawn")
-                ? "mdi-checkbox-marked-outline"
-                : "mdi-checkbox-blank-outline"
-            }}</v-icon>
-          </template>
-          Show Withdrawn Jobs
-        </v-list-item>
-
-        <v-list-item @click="updateFilters('all')">
+        <v-list-item @click="update('all')">
           <template v-slot:prepend>
             <v-icon>{{
               selectedFilters.length === 4
@@ -71,17 +38,31 @@
 </template>
 
 <script setup lang="ts">
-const selectedFilters = inject("selectedFilters") as Ref<string[]>;
+//types
+type FilterItem = { key: string; title: string };
+type Props = { modelValue: string[]; items: FilterItem[] };
 
-const updateFilters = (filter: string) => {
+//props & emits
+const props = defineProps<Props>();
+
+const emit = defineEmits(["update:modelValue"]);
+
+const selectedFilters = ref<string[]>(props.modelValue);
+
+//if no filter is selected, select all
+if (selectedFilters.value.length === 0)
+  selectedFilters.value = props.items.map((item) => item.key);
+
+const update = (filter: string) => {
   if (filter === "all") {
-    selectedFilters.value = ["pending", "completed", "draft", "withdrawn"];
+    selectedFilters.value = props.items.map((item) => item.key);
   } else if (selectedFilters.value.includes(filter)) {
     selectedFilters.value = selectedFilters.value.filter((f) => f !== filter);
   } else {
     selectedFilters.value.push(filter);
   }
+
+  emit("update:modelValue", selectedFilters.value);
 };
 </script>
-
-<style scoped></style>
+-
