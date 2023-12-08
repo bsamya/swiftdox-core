@@ -5,7 +5,7 @@
         <v-btn v-bind="props"
                variant="tonal"
                color="primary"
-               :elevation="selectedFilters.length !== 4 ? 8 : 0"
+               :elevation="selectedFilters.length !== items.length ? 8 : 0"
                icon="mdi-filter" />
       </template>
       <v-list>
