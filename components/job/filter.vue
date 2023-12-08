@@ -40,10 +40,18 @@
 <script setup lang="ts">
 //types
 type FilterItem = { key: string; title: string };
-type Props = { modelValue: string[]; items: FilterItem[] };
 
 //props & emits
-const props = defineProps<Props>();
+const props = defineProps({
+  modelValue: {
+    type: Array as PropType<string[]>,
+    required: true,
+  },
+  items: {
+    type: Array as PropType<FilterItem[]>,
+    required: true,
+  },
+});
 
 const emit = defineEmits(["update:modelValue"]);
 
