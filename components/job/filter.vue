@@ -3,8 +3,7 @@
     <v-menu :close-on-content-click="false">
       <template v-slot:activator="{ props }">
         <v-btn v-bind="props"
-               variant="tonal"
-               color="primary"
+               density="compact"
                :elevation="selectedFilters.length !== items.length ? 8 : 0"
                icon="mdi-filter" />
       </template>

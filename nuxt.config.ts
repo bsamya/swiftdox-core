@@ -1,9 +1,10 @@
 export default defineNuxtConfig({
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   modules: [
     "@pinia/nuxt",
     "@nuxtjs/tailwindcss",
-    "vuetify-nuxt-module"
+    "vuetify-nuxt-module",
+    "@nuxt/image",
   ],
   tailwindcss: {
     viewer: false

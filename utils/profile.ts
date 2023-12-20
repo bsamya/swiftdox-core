@@ -17,7 +17,7 @@ export type CompanyProfile = {
     lastUpdated?: { by: string, date: Timestamp },
     submitted?: null | { by: string, date: Timestamp }
     approved?: null | { by: string, date: Timestamp }
-    declined?: null | { by: string, date: Timestamp }
+    declined?: null | { by: string, date: Timestamp, reasons: string[] }
   },
   associates: string[];
   company: string;
@@ -47,7 +47,21 @@ export type CompanyProfile = {
   //if agentId is not null, then the profile is an client
   agentId: null | string,
 
-  status: "pending" | "approved" | "declined";
+  status: ProfileStatus
 }
 
 export type CompanyProfiles = Record<string, CompanyProfile>
+export type ProfileStatus = "pending" | "approved" | "declined";
+export type ProfileType = "company" | "agent" | "client";
+
+export type ProfileNote = {
+  id: string;
+  sourceId: string;
+  date: Timestamp;
+  user: string;
+  note: string;
+}
+
+export type ProfileNotes = {
+  [key: string]: ProfileNote
+}

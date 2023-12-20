@@ -1,3 +1,4 @@
+import { Job } from './job';
 import { Timestamp } from '@firebase/firestore';
 
 type Result = {
@@ -8,8 +9,14 @@ type Result = {
 export interface JobDocument {
   id: string;
   documentType: null | 'legal' | 'shipping';
-  approved?: boolean;
-  declined?: false | string[];
+  fee?: number;
+  result: undefined | Result;
+}
+
+type ItemBilling = {
+  fee: number;
+  qty: number;
+  total: number;
 }
 
 export interface LegalDocument {
@@ -20,6 +27,7 @@ export interface LegalDocument {
   documentType: 'legal';
   documentTypeId: string | null
   attachment: string | null
+  billing?: ItemBilling
 }
 
 export interface ShippingDocument {
@@ -28,6 +36,7 @@ export interface ShippingDocument {
   documentType: 'shipping';
   documents: { [key: string]: number };
   attachments: string[];
+  billing?: ItemBilling
 }
 
 export type Job = {
@@ -37,7 +46,8 @@ export type Job = {
   reference: string;
   country: string;
   region?: string;
-  status: 'draft' | 'pending' | 'submitted' | 'completed' | 'withdrawn';
+  status: JobStatus;
+
   items: (ShippingDocument | LegalDocument)[];
   events: {
     created?: { date: Timestamp, by: string }
@@ -66,14 +76,15 @@ export type Job = {
   };
 
   invoice?: {
-    qty: number,
-    fee: number,
-    total: number
+    total?: number;
+    date?: Timestamp;
   }
 
 }
 
 export type JobSummary = Pick<Job, "summary">
+
+type JobStatus = 'draft' | 'pending' | 'submitted' | 'completed' | 'withdrawn'
 
 export interface invoice {
   id: string;
@@ -89,3 +100,4 @@ export interface InvoiceItems {
   quantity: number;
   cost: number;
 }
+
