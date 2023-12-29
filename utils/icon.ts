@@ -21,6 +21,8 @@ export const icon = {
   "documentTypes": "mdi-file-multiple",
   "edit": "mdi-pencil",
   "faq": "mdi-frequently-asked-questions",
+  "filter": "mdi-filter",
+  "filterActive": "mdi-filter-check",
   "info": "mdi-information-outline",
   "invoice": "mdi-receipt-text",
   "menu": "mdi-dots-vertical",
