@@ -1,3 +1,5 @@
+import { Timestamp } from "@firebase/firestore-types";
+
 export type User = {
   id: string;
   partnerCode: string;
@@ -5,7 +7,7 @@ export type User = {
   title: string
   email: string;
   tel: string;
-  sms?: string | null;
+  sms?: { number: string, date: Timestamp } | null;
   permissions: {
     manageUsers: Boolean;
     manageProfiles: Boolean;
