@@ -5,6 +5,7 @@ export type User = {
   title: string
   email: string;
   tel: string;
+  sms?: string | null;
   permissions: {
     manageUsers: Boolean;
     manageProfiles: Boolean;
