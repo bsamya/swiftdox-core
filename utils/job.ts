@@ -1,4 +1,3 @@
-import { Job } from './job';
 import { Timestamp } from '@firebase/firestore';
 
 type Result = {
@@ -45,7 +44,7 @@ export type Job = {
   agentId: string | null;
   reference: string;
   country: string;
-  region?: string;
+  region: null | string;
   status: JobStatus;
 
   items: (ShippingDocument | LegalDocument)[];
