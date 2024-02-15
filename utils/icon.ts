@@ -67,7 +67,7 @@ export const icon = {
   },
   "user": "mdi-account-circle",
   "users": "mdi-account-group",
-  document: {
+  "document": {
     "approve": "mdi-file-check",
     "decline": "mdi-file-remove",
     "pending": "mdi-file-question-outline",
