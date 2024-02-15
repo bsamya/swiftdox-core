@@ -77,7 +77,7 @@ interface Application {
   timeLine: TimeLine[]
   status: ApplicationStatus;
   nusaccAuthenticate: boolean;
-  authentication: AuthenticationType;
+  authentication: 'legalization' | 'apostille' | undefined;
   deliveryMethod: "email" | "mail" | "prepaidLabel";
   mailingAddress: string | null;
   mailingLabel: string | null;

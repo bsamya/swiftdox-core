@@ -1,4 +1,4 @@
-import { Timestamp } from '@firebase/firestore'
+import { Timestamp } from '@firebase/firestore-types'
 
 export type DashboardAlert = {
   id?: string
@@ -11,4 +11,3 @@ export type DashboardAlert = {
   published: boolean,
   updates: { user: string, timestamp: Date }[]
 }
-

@@ -14,10 +14,7 @@ export const icon = {
   "declineReasons": "mdi-file-remove",
   "delete": "mdi-delete",
   "deleteUser": "mdi-account-remove",
-  "document": {
-    "shipping": "mdi-ferry",
-    "legal": "mdi-briefcase"
-  },
+
   "documentTypes": "mdi-file-multiple",
   "edit": "mdi-pencil",
   "faq": "mdi-frequently-asked-questions",
@@ -69,5 +66,15 @@ export const icon = {
     "profile": "mdi-account"
   },
   "user": "mdi-account-circle",
-  "users": "mdi-account-group"
+  "users": "mdi-account-group",
+  document: {
+    "approve": "mdi-file-check",
+    "decline": "mdi-file-remove",
+    "pending": "mdi-file-question-outline",
+    "reset": "mdi-file-document-refresh",
+    "certificate": "mdi-file-certificate",
+    "attachment": "mdi-file-document",
+    "shipping": "mdi-ferry",
+    "legal": "mdi-briefcase"
+  }
 }
