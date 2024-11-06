@@ -8,9 +8,9 @@ export type Decline = {
 
 
 //address book
-type AddressType = "mailing" | "buyer" | "consignee";
+export type AddressType = "mailing" | "buyer" | "consignee";
 
-type Address = {
+export type Address = {
   profileId: string;
   addressId: string;
   addressType: AddressType;
@@ -24,7 +24,7 @@ type Address = {
 };
 
 //product store
-interface Product {
+export interface Product {
   productId: string;
   profileId: string;
   productName: string;
