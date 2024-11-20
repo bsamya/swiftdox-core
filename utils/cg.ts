@@ -3,26 +3,26 @@ import { Timestamp } from "firebase/firestore";
 //addressBook
 
 
-type AddressUpdateSource = "addressBook" | "coo";
+export type AddressUpdateSource = "addressBook" | "coo";
 /* Address Book */
 
-type DateField =
+export type DateField =
   | "businessLicenseExpiry"
   | "manufacturingLicenseExpiry"
   | "chamberMembershipExpiry";
 
-type ProfileAddressType = "registeredAddress" | "operationsAddress";
+export type ProfileAddressType = "registeredAddress" | "operationsAddress";
 
-type FileUploadProps = {
+export type FileUploadProps = {
   label: string;
 };
 
 //applications types
 
 //certificate of origin types
-type ShipmentMode = "edit" | "add" | "view";
+export type ShipmentMode = "edit" | "add" | "view";
 
-interface ShippingItem {
+export interface ShippingItem {
   id: string;
   description: string;
   countryOfOrigin: string[];
@@ -32,7 +32,7 @@ interface ShippingItem {
   netWeight?: string;
 }
 
-type InvoiceItem = {
+export type InvoiceItem = {
   item: string,
   total: number
   description?: string,
@@ -40,15 +40,15 @@ type InvoiceItem = {
   unitPrice?: number,
 }
 
-type Payments = {
+export type Payments = {
   transId: string,
   date: string,
   method: string
   amount: number,
 }
 
-type ApplicationStatus = "draft" | "pending" | 'withdrawn' | "approved" | "declined" | "completed";
-type TimeLine = {
+export type ApplicationStatus = "draft" | "pending" | 'withdrawn' | "approved" | "declined" | "completed";
+export type TimeLine = {
   source: 'client' | 'partner' | 'admin';
   status: ApplicationStatus;
   date: Timestamp;
@@ -57,7 +57,7 @@ type TimeLine = {
   message?: string
 }
 
-interface Application {
+export interface Application {
   applicationId: string;
   certificateType: "cfs" | "gmp" | "coo";
   partnerCode: string;
@@ -85,7 +85,7 @@ interface Application {
   scannedCopies?: boolean
 }
 
-interface CG extends Application {
+export interface CG extends Application {
   copies: number;
   isManufacturer: boolean;
   addendumText: false | string;
@@ -97,7 +97,7 @@ interface CG extends Application {
   }
 }
 
-interface COO extends Application {
+export interface COO extends Application {
   seller: string;
   consignee: string;
   buyer: string;
@@ -121,20 +121,20 @@ interface COO extends Application {
   }
 }
 
-type CertificateOptions = {
+export type CertificateOptions = {
   isoCode: string;
   language: string;
   fee: number;
 };
 
-type CooDocumentType =
+export type CooDocumentType =
   | "invoice"
   | "packingList"
   | "otherDocuments"
   | "mailingLabel";
 
 
-interface DocumentState {
+export interface DocumentState {
   documents: DocType[],
   initialized: boolean,
   editDialog: boolean,
@@ -142,10 +142,10 @@ interface DocumentState {
   documentDialog: boolean,
 }
 
-interface RateCard { isoCode: string, language: string, fee: number }
-type PartnerListItem = { code: string, name: string }
+export interface RateCard { isoCode: string, language: string, fee: number }
+export type PartnerListItem = { code: string, name: string }
 
-interface JobPayment {
+export interface JobPayment {
   jobId: string;
   jobPaymentId: string;
   amountPaid: number;
