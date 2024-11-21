@@ -85,6 +85,9 @@ export interface Application {
   scannedCopies?: boolean
 }
 
+
+export type DocType = Application['certificateType'];
+
 export interface CG extends Application {
   copies: number;
   isManufacturer: boolean;
